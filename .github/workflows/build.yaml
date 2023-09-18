@@ -20,3 +20,19 @@ jobs:
 
       - name: List files
         run: ls -la build
+
+      - name: Move libcadical.a
+        run: mkdir build-package && mv build/libcadical.a build-package/
+
+      - name: Create library for Linux
+        working-directory: build-package
+        run: |
+          ar -x libcadical.a
+          gcc -shared *.o -o libcadical.so
+
+      - name: Upload library for Linux
+        uses: actions/upload-artifact@v3
+        working-directory: build-package
+        with:
+          name: libcadical.so
+          path: libcadical.so
