@@ -10,12 +10,13 @@ on:
       - .github/workflows/build.yaml
 jobs:
   build_linux_binary:
+    name: Build Linux binary
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Build
-        run: ./configure && make
+        run: ./configure -fPIC && make
 
       - name: List files
         run: ls -la build
