@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
-      - dev
+      - master
     paths:
       - src/**
       - .github/workflows/build.yaml
