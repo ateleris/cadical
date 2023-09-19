@@ -1,5 +1,7 @@
 #include "internal.hpp"
 
+__asm__(".symver realpath,realpath@GLIBC_2.31");
+
 namespace CaDiCaL {
 
 /*------------------------------------------------------------------------*/
